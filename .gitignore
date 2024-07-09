@@ -1,0 +1,20 @@
+# Node.js dependencies
+node_modules/
+
+# Husky files
+.husky/_*
+
+# IDE files
+.vscode/
+.idea/
+
+# Log files
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other files
+coverage

@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["client/**/*.{ts,tsx,js,jsx}"],
+      "extends": "./client/.eslintrc"
+    },
+    {
+      "files": ["server/**/*.{ts,js}"],
+      "extends": "./server/.eslintrc"
+    }
+  ]
+}

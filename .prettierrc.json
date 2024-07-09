@@ -1,0 +1,17 @@
+{
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": ["client/**/*.{ts,tsx,js,jsx}"],
+      "options": {}
+    },
+    {
+      "files": ["server/**/*.{ts,js}"],
+      "options": {}
+    }
+  ]
+}
