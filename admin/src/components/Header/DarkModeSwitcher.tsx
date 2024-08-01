@@ -4,7 +4,7 @@ const DarkModeSwitcher = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   return (
-    <div className='flex gap-3 flex-row-reverse'>
+    <div className='flex gap-3 flex-row-reverse justify-center items-center'>
       <div className="font-medium text-lg first-letter:uppercase">
       {colorMode === 'dark' ? 'dark' : 'light'}
       </div>

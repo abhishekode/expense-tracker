@@ -102,16 +102,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       </div>
       <div className="absolute bottom-0 left-0 w-full bg-slate-700 text-white">
         <div className="">
-          <div className="py-3 flex border-b w-full border-slate-600 pl-6">
+          <div className="py-3 flex justify-center items-center border-b w-full border-slate-600 pl-6">
             <DarkModeSwitcher />
-          </div>
-          <div className="">
-            <button
-              className="flex gap-9 py-2 font-medium duration-300 ease-in-out hover:text-blue-200 pl-6 "
-              >
-              <CiLogout className='text-2xl' />
-              Log Out
-            </button>
           </div>
         </div>
       </div>
