@@ -1,7 +1,7 @@
 import React from 'react';
-import { FilterAppVersion } from '../common/Interfaces/filter.interface';
+import { FilterAppVersion } from '../../constant/Interfaces/filter.interface';
 import BaseModal from '../common/model';
-import { IAppVersionHistory, IAppVersionHistoryResponse, IsActiveFilter } from '../common/Interfaces';
+import { IAppVersionHistory, IAppVersionHistoryResponse, IsActiveFilter } from '../../constant/interfaces';
 import { getAppVersionHistory } from '@/utils/api.method';
 import { toast } from 'react-toastify';
 

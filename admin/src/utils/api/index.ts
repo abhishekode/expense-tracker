@@ -1,6 +1,6 @@
-import { CurrentUser } from '@/components/common/Interfaces';
 import { server_url } from '@/config';
 import axios from 'axios';
+import { CurrentUser } from '../interfaces/user.interface';
 
 const API_BASE_URL = `${server_url}/api/v1`;
 
@@ -9,22 +9,22 @@ export const api = axios.create({
 });
 
 const getToken = () => {
-  const admin: CurrentUser = JSON.parse(localStorage.getItem('admin') || '{}');
-  return admin.token;
+  const user: CurrentUser = JSON.parse(localStorage.getItem('user') || '{}');
+  return user.token;
 };
 
-export const withAuthorization = {
+export const createAuthorizationHeader = () => ({
   headers: {
     Authorization: `Bearer ${getToken()}`,
   },
-};
+});
 
-export const withAuthorizationFormData = {
+export const createAuthorizationFormDataHeader = () => ({
   headers: {
     Authorization: `Bearer ${getToken()}`,
     'Content-Type': 'multipart/form-data',
   },
-};
+});
 
 export const handleRequest = async (request: Promise<any>) => {
   try {

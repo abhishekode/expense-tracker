@@ -1,5 +1,6 @@
 import SignIn from "@/pages/Authentication/SignIn";
 import Dashboard from "@/pages/Dashboard";
+import ExpenseList from "@/pages/Expense";
 
 import NotFound from "@/pages/NotFound";
 
@@ -13,5 +14,7 @@ export const publicRoutes = [
 export const privateRoutes = [
   { path: "/", element: <Dashboard /> },
   { path: "/dashboard", element: <Dashboard /> },
+  { path: "/expense", element: <ExpenseList /> },
+
 
 ];

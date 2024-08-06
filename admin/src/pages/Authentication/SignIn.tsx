@@ -4,39 +4,42 @@ import PhoneMockUp from '@/static/images/logo/self-logo.svg';
 import Frame from '@/static/images/cover/Frame.svg';
 import { TfiEmail } from 'react-icons/tfi';
 import { useForm } from 'react-hook-form';
-import { LoginRequest } from '@/components/common/Interfaces';
-import { AdminAPI } from '@/utils/api.method';
 import { toast } from 'react-toastify';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { LoginPayload, UserAPI } from '@/utils/api/user.api';
+import { useCurrentUser } from '@/context/userContext';
 
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
+  const {setCurrentUser} = useCurrentUser()
   const [isPassword, setIsPassword] = React.useState<boolean>(true);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginRequest>();
+  } = useForm<LoginPayload>();
 
- 
 
-  const onSubmit = async (data: LoginRequest) => {
+
+
+  const onSubmit = async (data: LoginPayload) => {
     try {
-      const res = await AdminAPI.login(data);
+      const res = await UserAPI.login(data);
       if (res) {
         toast.success("user logged-in successfully", {
           position: toast.POSITION.TOP_RIGHT,
-          autoClose: 1000, 
-      });
-        localStorage.setItem("admin", JSON.stringify(res.result));
-        navigate("/dashboard");
+          autoClose: 1000,
+        });
+        localStorage.setItem("user", JSON.stringify(res.result));
+        navigate("/");
+        setCurrentUser(res.result);
       }
     } catch (error: any) {
       toast.error(error?.message || "Something went wrong", {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1000, 
-    });
+        autoClose: 1000,
+      });
     }
   };
 
@@ -50,8 +53,8 @@ const SignIn: React.FC = () => {
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="flex justify-center items-center flex-col my-20 gap-19">
-                <img src={PhoneMockUp} alt="phone-mockup" />
-                <img src={Frame} alt="phone-mockup" />
+              <img src={PhoneMockUp} alt="phone-mockup" />
+              <img src={Frame} alt="phone-mockup" />
             </div>
           </div>
 

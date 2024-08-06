@@ -1,24 +1,19 @@
+export interface MongoResponse {
+  _id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  __v: number;
+}
 export enum UserRole {
-	Student = 'student',
-	Admin = 'admin',
+  Passenger = 'passenger',
+  Driver = 'driver',
+  Admin = 'admin',
 }
 
 export enum Gender {
-	Male = 'male',
-	Female = 'female',
-	Other = 'other',
-}
-
-export enum PaidIn {
-	Cash = 'cash',
-	Card = 'card',
-	Cheque = 'cheque',
-	Online = 'online',
-	UPI = 'upi',
-	phonePay = 'phonePay',
-	GooglePay = 'googlePay',
-	Paytm = 'paytm',
-	Others = 'others',
+  Male = 'male',
+  Female = 'female',
+  Other = 'other',
 }
 
 export enum ExpenseCategory {

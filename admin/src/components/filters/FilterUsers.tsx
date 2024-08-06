@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseModal from '../common/model';
-import { IsActiveFilter, SignupMethodFilter, UserRoleFilter } from '../common/Interfaces';
-import { UserQueryDto } from '../common/Interfaces/api.request-interface';
+import { IsActiveFilter, SignupMethodFilter, UserRoleFilter } from '../../constant/interfaces';
+import { UserQueryDto } from '../../constant/Interfaces/api.request-interface';
 
 interface FilterUsers {
     isOpen: boolean;

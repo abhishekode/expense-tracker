@@ -4,7 +4,6 @@ import SidebarLink from './SidebarLink';
 import { links } from '@/utils/app.sidebar-data';
 import { GrClose } from 'react-icons/gr';
 import DarkModeSwitcher from '../Header/DarkModeSwitcher';
-import { CiLogout } from "react-icons/ci";
 import useColorMode from '@/hooks/useColorMode';
 import PhoneMockUp from '@/static/images/logo/self-sm-logo.svg';
 

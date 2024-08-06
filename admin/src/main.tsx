@@ -22,12 +22,15 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 import App from './App';
 import { ToastContainer } from 'react-toastify';
+import { UserProvider } from './context/userContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Router>
-      <ToastContainer progressClassName="toastProgress" autoClose={1000} />
-      <App />
+      <UserProvider>
+        <ToastContainer progressClassName="toastProgress" autoClose={1000} />
+        <App />
+      </UserProvider>
     </Router>
   </React.StrictMode>,
 );

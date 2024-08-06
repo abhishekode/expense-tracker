@@ -1,4 +1,4 @@
-import { MongoResponse } from "@/components/common/Interfaces";
+import { MongoResponse } from "@/constant/interfaces";
 
 export interface Address {
 	address: string;

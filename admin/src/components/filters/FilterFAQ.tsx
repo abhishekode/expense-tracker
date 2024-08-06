@@ -1,7 +1,7 @@
 import React from 'react';
-import { IFilterFAQ } from '../common/Interfaces/filter.interface';
+import { IFilterFAQ } from '../../constant/Interfaces/filter.interface';
 import BaseModal from '../common/model';
-import { IsActiveFilter } from '../common/Interfaces';
+import { IsActiveFilter } from '../../constant/interfaces';
 
 interface FilterFAQ {
     isOpen: boolean;

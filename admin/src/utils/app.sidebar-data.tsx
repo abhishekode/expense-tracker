@@ -18,5 +18,11 @@ export const links = [
     ],
     icon: <FaUser className='text-xl'/>,
   },
+  {
+    title: 'Expense',
+    path: '/expense',
+    pathnameInclude: 'expense',
+    icon: <BsClipboardData className='text-xl' />,
+  },
  
 ];

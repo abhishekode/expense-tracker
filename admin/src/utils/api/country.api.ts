@@ -1,4 +1,4 @@
-import { MongoResponse } from '@/components/common/Interfaces';
+import { MongoResponse } from '@/constant/interfaces';
 import { api, handleRequest, withAuthorization } from '.';
 
 export enum CouponType {

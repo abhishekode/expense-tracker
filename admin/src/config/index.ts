@@ -2,7 +2,7 @@ const env = process.env.NODE_ENV || 'local';
 
 const masterConfig = {
   local: {
-    server_url: 'http://localhost:5000',
+    server_url: 'http://localhost:3001',
     BASE_URL: 'http://localhost:3000',
   },
   staging: {

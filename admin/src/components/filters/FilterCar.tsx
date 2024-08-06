@@ -1,7 +1,7 @@
 import React from 'react';
-import { FilterCarModel } from '../common/Interfaces/filter.interface';
+import { FilterCarModel } from '../../constant/Interfaces/filter.interface';
 import BaseModal from '../common/model';
-import { ICarCompanyResponse, IsActiveFilter } from '../common/Interfaces';
+import { ICarCompanyResponse, IsActiveFilter } from '../../constant/interfaces';
 import { toast } from 'react-toastify';
 import { getCarCompany } from '@/utils/api.method';
 
