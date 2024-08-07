@@ -7,13 +7,13 @@ import BaseModal from '@/components/common/model';
 import { MultiSelect } from "react-multi-select-component";
 
 
-interface CouponCUProps {
+interface ExpenseCUProps {
     isOpen: boolean;
     toggleModal: () => void;
-    fetchCoupon: () => void;
+    fetchExpense: () => void;
     updateData?: IExpense;
 }
-const CouponCU: React.FC<CouponCUProps> = ({ fetchCoupon, isOpen, toggleModal, updateData }) => {
+const ExpenseCU: React.FC<ExpenseCUProps> = ({ fetchExpense, isOpen, toggleModal, updateData }) => {
     const {
         register,
         handleSubmit,
@@ -51,7 +51,7 @@ const CouponCU: React.FC<CouponCUProps> = ({ fetchCoupon, isOpen, toggleModal, u
                     position: toast.POSITION.TOP_RIGHT,
                     autoClose: 1000,
                 });
-                fetchCoupon()
+                fetchExpense()
                 toggleModal()
             }
         } catch (error: any) {
@@ -77,7 +77,7 @@ const CouponCU: React.FC<CouponCUProps> = ({ fetchCoupon, isOpen, toggleModal, u
 
 
     return (
-        <BaseModal isOpen={isOpen} toggleModal={toggleModal} heading='Add Coupon'>
+        <BaseModal isOpen={isOpen} toggleModal={toggleModal} heading='Add Expense'>
             <div className='bg-gray w-full h-full max-h-[80vh] flex flex-col items-center overflow-y-auto'>
                 <div className="w-full max-w-lg">
                     <div className="w-full p-4">
@@ -101,11 +101,11 @@ const CouponCU: React.FC<CouponCUProps> = ({ fetchCoupon, isOpen, toggleModal, u
 
                             <div className="mb-4">
                                 <label className="mb-2.5 block font-extrabold">
-                                    Coupon Overview
+                                    Expense Overview
                                 </label>
                                 <div className="relative">
                                     <textarea
-                                        placeholder="Enter Coupon Overview"
+                                        placeholder="Enter Expense Overview"
                                         {...register("description", { required: true })}
                                         className={inputClassName}
                                     />
@@ -116,7 +116,7 @@ const CouponCU: React.FC<CouponCUProps> = ({ fetchCoupon, isOpen, toggleModal, u
                             </div>
                             <div className="mb-4">
                                 <label className="mb-2.5 block font-extrabold">
-                                    Coupon type
+                                    Expense type
                                 </label>
 
                                 <MultiSelect
@@ -163,4 +163,4 @@ const CouponCU: React.FC<CouponCUProps> = ({ fetchCoupon, isOpen, toggleModal, u
     )
 }
 
-export default CouponCU
+export default ExpenseCU

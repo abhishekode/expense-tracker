@@ -1,15 +1,15 @@
 import React from 'react'
 import { MdDelete, MdModeEdit } from 'react-icons/md';
-import CouponCU from './CouponCU';
+import CouponCU from './ExpenseCU';
 import { toast } from 'react-toastify';
 import DeleteAlertModel from '@/components/common/model/DeleteAlertModel';
 import { ExpenseAPI, IExpense } from '@/utils/api/expense.api';
 
 interface CouponTableActionProps {
     data: IExpense;
-    fetchCoupon: () => void;
+    fetchExpenses: () => void;
 }
-const CouponTableAction: React.FC<CouponTableActionProps> = ({ data, fetchCoupon }) => {
+const ExpenseTableAction: React.FC<CouponTableActionProps> = ({ data, fetchExpenses }) => {
     const [isUpdate, setIsUpdate] = React.useState(false)
     const [isDeleteCoupon, setIsDeleteCoupon] = React.useState<boolean>(false)
 
@@ -24,7 +24,7 @@ const CouponTableAction: React.FC<CouponTableActionProps> = ({ data, fetchCoupon
                     position: toast.POSITION.TOP_RIGHT,
                     autoClose: 1000,
                 });
-                fetchCoupon();
+                fetchExpenses();
             }
         })
     }
@@ -38,7 +38,7 @@ const CouponTableAction: React.FC<CouponTableActionProps> = ({ data, fetchCoupon
             {isUpdate && <CouponCU
                 isOpen={isUpdate}
                 toggleModal={toggleUpdateModel}
-                fetchCoupon={fetchCoupon}
+                fetchExpense={fetchExpenses}
                 updateData={data}
             />}
               {isDeleteCoupon &&
@@ -67,4 +67,4 @@ const CouponTableAction: React.FC<CouponTableActionProps> = ({ data, fetchCoupon
     )
 }
 
-export default CouponTableAction
+export default ExpenseTableAction

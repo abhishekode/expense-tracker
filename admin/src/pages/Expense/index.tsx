@@ -1,12 +1,12 @@
 import { radDateFormatter } from '@/utils';
 import React from 'react'
-import CouponTableAction from './component/CouponTableAction';
+import ExpenseTableAction from './component/ExpenseTableAction';
 import { toast } from 'react-toastify';
 import { AgGridReact } from 'ag-grid-react';
 import Pagination from '@/components/common/ui/PaginationFooter';
 import DefaultLayout from '@/layout/DefaultLayout';
 import BreadCrumb from '@/components/common/ui/BreadCrumb';
-import CouponCU from './component/CouponCU';
+import ExpenseCU from './component/ExpenseCU';
 import { ExpenseAPI, IExpenseResponse, IExpense } from '@/utils/api/expense.api';
 
 const ExpenseList = () => {
@@ -14,7 +14,7 @@ const ExpenseList = () => {
         expense: [],
         count: 0
     })
-    const [addCoupon, setAddCoupon] = React.useState(false);
+    const [addExpense, setAddExpense] = React.useState(false);
     const [isOpenFilter, setIsOpenFilter] = React.useState(false);
     const [filter, setFilter] = React.useState<any>({});
 
@@ -42,13 +42,13 @@ const ExpenseList = () => {
             flex: 0.6,
             filter: true,
             cellRenderer: (params: { data: IExpense }) => {
-                return <CouponTableAction data={params.data} fetchCoupon={fetchCoupon} />;
+                return <ExpenseTableAction data={params.data} fetchExpenses={fetchExpenses} />;
             },
         },
 
     ];
 
-    const fetchCoupon = async (query?: any) => {
+    const fetchExpenses = async (query?: any) => {
         try {
             const res = await ExpenseAPI.getAll({ ...query })
             if (res.status) {
@@ -62,23 +62,23 @@ const ExpenseList = () => {
         }
     }
     React.useEffect(() => {
-        fetchCoupon()
+        fetchExpenses()
     }, [])
 
     const toggleModal = () => {
-        setAddCoupon(!addCoupon)
+        setAddExpense(!addExpense)
     }
     return (
         <DefaultLayout>
-            {addCoupon && <CouponCU isOpen={addCoupon} fetchCoupon={fetchCoupon} toggleModal={toggleModal} />}
+            {addExpense && <ExpenseCU isOpen={addExpense} fetchExpense={fetchExpenses} toggleModal={toggleModal} />}
             <div>
-                <BreadCrumb pageName='Coupon' />
+                <BreadCrumb pageName='Expense' />
                 <div className="flex gap-4 mb-8 justify-end">
                     <h1 className='text-xl rounded border bg-blue-500 text-gray px-5 py-1 cursor-pointer'>Filter</h1>
                     <h1 className='text-xl rounded border bg-blue-500 text-gray px-5 py-1 cursor-pointer'>Clear Filter</h1>
                     <button>
                         <h4 className="text-xl rounded border bg-blue-500 text-gray px-5 py-1" onClick={toggleModal}>
-                            Add Coupon
+                            Add Expense
                         </h4>
                     </button>
                 </div>
@@ -90,7 +90,7 @@ const ExpenseList = () => {
                     </div>
                     <div className='relative z-1 -mt-4'>
                         {state.expense?.length > 0 &&
-                            <Pagination getRequestData={fetchCoupon} total={state.count} />
+                            <Pagination getRequestData={fetchExpenses} total={state.count} />
                         }
                     </div>
                 </div>

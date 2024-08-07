@@ -10,6 +10,12 @@ export const links = [
     icon: <LuPieChart className='text-xl' />,
   },
   {
+    title: 'Category',
+    path: '/category',
+    pathnameInclude: 'category',
+    icon: <LuPieChart className='text-xl' />,
+  },
+  {
     title: 'Users',
     path: '/user/',
     pathnameInclude: 'user',
