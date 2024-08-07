@@ -3,10 +3,10 @@ import { MdDelete, MdModeEdit } from 'react-icons/md';
 import CouponCU from './CouponCU';
 import { toast } from 'react-toastify';
 import DeleteAlertModel from '@/components/common/model/DeleteAlertModel';
-import { ExpenseAPI } from '@/utils/api/expense.api';
+import { ExpenseAPI, IExpense } from '@/utils/api/expense.api';
 
 interface CouponTableActionProps {
-    data: any;
+    data: IExpense;
     fetchCoupon: () => void;
 }
 const CouponTableAction: React.FC<CouponTableActionProps> = ({ data, fetchCoupon }) => {

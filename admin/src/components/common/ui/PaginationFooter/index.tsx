@@ -54,14 +54,14 @@ const Pagination: React.FC<PaginationProps> = ({ total, getRequestData }) => {
 
   return (
     <div className="bg-white rounded-lg p-1 flex justify-between">
-      <div className="relative inline-block text-left">
+      <div className="relative flex items-center gap-4 text-left">
         <div>
           <button
             onClick={toggleDropup}
             type="button"
             className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
           >
-            Page Size
+            {pageSize}
             <svg
               className="-mr-1 ml-2 h-5 w-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -73,6 +73,7 @@ const Pagination: React.FC<PaginationProps> = ({ total, getRequestData }) => {
             </svg>
           </button>
         </div>
+        <div className="font-semibold">Total Count: {total}</div>
         {isOpen && (
           <div className="origin-bottom-right absolute bottom-full mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
