@@ -1,4 +1,6 @@
 import SignIn from "@/pages/Authentication/SignIn";
+import BlogList from "@/pages/Blogs";
+import CreateNewBlog from "@/pages/Blogs/component/Create";
 import CategoryList from "@/pages/Category";
 import Dashboard from "@/pages/Dashboard";
 import ExpenseList from "@/pages/Expense";
@@ -17,5 +19,7 @@ export const privateRoutes = [
   { path: "/dashboard", element: <Dashboard /> },
   { path: "/expense", element: <ExpenseList /> },
   { path: "/category", element: <CategoryList /> },
+  { path: "/blogs", element: <BlogList /> },
+  { path: "/blogs/:slug", element: <CreateNewBlog /> },
 
 ];

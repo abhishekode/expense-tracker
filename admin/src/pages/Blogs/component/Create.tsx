@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import NotFound from '../../NotFound';
 import { BlogAPI, IBlog } from '@/utils/api/blogs.api';
 import { toast } from 'react-toastify';
 import AddUpdateBlog from './AddUpdateBlog';

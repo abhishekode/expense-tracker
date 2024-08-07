@@ -30,5 +30,11 @@ export const links = [
     pathnameInclude: 'expense',
     icon: <BsClipboardData className='text-xl' />,
   },
+  {
+    title: 'Blog',
+    path: '/blogs',
+    pathnameInclude: 'blogs',
+    icon: <BsClipboardData className='text-xl' />,
+  },
  
 ];

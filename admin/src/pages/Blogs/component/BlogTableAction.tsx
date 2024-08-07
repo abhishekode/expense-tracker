@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdDelete, MdRemoveRedEye } from 'react-icons/md';
 import { IBlog } from '@/utils/api/blogs.api';
+import { Link } from 'react-router-dom';
 
 interface BlogTableActionProps {
     data: IBlog;
@@ -13,7 +14,9 @@ const BlogTableAction: React.FC<BlogTableActionProps> = ({ data }) => {
                 <button
                     className="bg-gray-500 hover:bg-gray-700 font-bold rounded"
                 >
-                    <MdRemoveRedEye className='text-xl' />
+                    <Link to={`/blogs/${data.slug}`}>
+                        <MdRemoveRedEye className='text-xl' />
+                    </Link>
                 </button>
                 <button
                     className="hover:bg-red-100 font-bold rounded"

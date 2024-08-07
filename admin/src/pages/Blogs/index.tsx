@@ -1,4 +1,3 @@
-import SwitchInput from '@/components/common/ui/switch'
 import { IBlogResponse, BlogAPI, BlogFilterQuery, IBlog } from '@/utils/api/blogs.api'
 import React from 'react'
 import { toast } from 'react-toastify'
@@ -8,6 +7,7 @@ import { AgGridReact } from 'ag-grid-react'
 import Pagination from '@/components/common/ui/PaginationFooter'
 import DefaultLayout from '@/layout/DefaultLayout'
 import { Link } from 'react-router-dom'
+import SwitchInput from '@/components/ui/Switch'
 
 const BlogList = () => {
     const initialValues: IBlogResponse = {

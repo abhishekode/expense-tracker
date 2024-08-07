@@ -1,16 +1,17 @@
-import { AdminPopulateResponse, MongoResponse } from '@/components/common/Interfaces';
+
+import { MongoResponse } from '@/constant/interfaces';
 import {
   api,
   handleRequest,
-  withAuthorization,
-  withAuthorizationFormData,
+  createAuthorizationFormDataHeader,
+  createAuthorizationHeader
 } from '.';
 
 export interface IBlog extends MongoResponse {
   title: string;
   content: string;
   slug: string;
-  author: AdminPopulateResponse;
+  author: any;
   category: string;
   featuredImage: string;
   isPublished: boolean;
@@ -38,18 +39,18 @@ const pathPrefix = 'blogs';
 
 export const BlogAPI = {
   addNew: (data: any) =>
-    handleRequest(api.post(`/${pathPrefix}`, data, withAuthorizationFormData)),
+    handleRequest(api.post(`/${pathPrefix}`, data, createAuthorizationFormDataHeader())),
 
   getAll: (query?: BlogFilterQuery) =>
     handleRequest(api.get(`/${pathPrefix}`, { params: query })),
 
   deleteById: (id: string) =>
-    handleRequest(api.delete(`${pathPrefix}/${id}`, withAuthorization)),
+    handleRequest(api.delete(`${pathPrefix}/${id}`, createAuthorizationHeader())),
 
   getOne: (slug: string) => handleRequest(api.get(`/${pathPrefix}/${slug}`)),
 
   updateById: (id: string, data: any) =>
     handleRequest(
-      api.put(`${pathPrefix}/${id}`, data, withAuthorizationFormData),
+      api.put(`${pathPrefix}/${id}`, data, createAuthorizationFormDataHeader()),
     ),
 };
