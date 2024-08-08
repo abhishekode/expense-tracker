@@ -49,8 +49,15 @@ export const BlogAPI = {
 
   getOne: (slug: string) => handleRequest(api.get(`/${pathPrefix}/${slug}`)),
 
-  updateById: (id: string, data: any) =>
-    handleRequest(
+  updateById: (id: string, data: any) =>{
+    return handleRequest(
       api.put(`${pathPrefix}/${id}`, data, createAuthorizationFormDataHeader()),
-    ),
+    )
+  },
+  publishedById: (id: string, data: any) =>{
+    return handleRequest(
+      api.put(`${pathPrefix}/${id}/published`, data, createAuthorizationHeader()),
+    )
+  }
 };
+

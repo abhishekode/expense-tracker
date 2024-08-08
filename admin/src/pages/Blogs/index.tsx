@@ -50,14 +50,19 @@ const BlogList = () => {
             cellRenderer: (params: { data: IBlog }) => {
                 const active = params.data.isPublished as boolean;
 
-                const handleSwitchChange = (newValue: boolean) => {
-                    // handleUpdateUser(params.data._id, { isAccountDeactivated: newValue });
-                    BlogAPI.updateById(params.data._id, { isPublished: newValue}).then(() => {
-                        toast.success('Updated Successfully')
-                        fetchAllBlogs()
-                    });
+                const handleSwitchChange = async (newValue: boolean) => {
+                    try {
+                        const data = { isPublished: newValue };
+                        await BlogAPI.publishedById(params.data._id, data);
 
+                        toast.success('Updated Successfully');
+                        fetchAllBlogs();
+                    } catch (error) {
+                        toast.error('Failed to update. Please try again.');
+                        console.error(error);
+                    }
                 };
+
 
                 return (
                     <div className="flex items-center h-full">

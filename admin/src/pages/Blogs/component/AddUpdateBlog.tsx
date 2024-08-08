@@ -39,7 +39,7 @@ const AddUpdateBlog: React.FC<AddUpdateBlogProps> = ({ updateData }) => {
             }
             if (res.status) {
                 toast.success(res.message);
-                navigate("/blog/list");
+                navigate("/blogs");
             }
         } catch (error: any) {
             toast.error(error?.message || "Something went wrong");
@@ -67,18 +67,7 @@ const AddUpdateBlog: React.FC<AddUpdateBlogProps> = ({ updateData }) => {
     return (
         <div className="">
             <form onSubmit={handleSubmit(onSubmit)} className='max-w-5xl'>
-                <div className="mb-4">
-                    <label className="mb-2.5 block font-medium">Title</label>
-                    <input
-                        type="text"
-                        placeholder="Enter Title"
-                        {...register("title", { required: true })}
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    />
-                    {errors.title && (
-                        <div className="text-sm text-red-600">Title is required</div>
-                    )}
-                </div>
+                <div className="grid grid-cols-2 gap-2 mt-5 items-center">
                 <div className="mb-4">
                     <label className="mb-2.5 block font-medium">Category</label>
                     {categories.length > 0 ? <select
@@ -104,6 +93,20 @@ const AddUpdateBlog: React.FC<AddUpdateBlogProps> = ({ updateData }) => {
                         className="w-full rounded-lg border border-stroke bg-transparent py-2 pl-2 pr-4 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
                 </div>
+                </div>
+                <div className="mb-4">
+                    <label className="mb-2.5 block font-medium">Title</label>
+                    <input
+                        type="text"
+                        placeholder="Enter Title"
+                        {...register("title", { required: true })}
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    />
+                    {errors.title && (
+                        <div className="text-sm text-red-600">Title is required</div>
+                    )}
+                </div>
+
                 <div className="mb-4">
                     <label className="mb-2.5 block font-medium">Content</label>
                     <TinyMCEEditor

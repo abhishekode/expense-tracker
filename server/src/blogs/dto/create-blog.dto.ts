@@ -9,6 +9,7 @@ import {
 	ArrayMinSize,
 	ArrayMaxSize,
 	ValidateIf,
+	IsBoolean,
 } from 'class-validator';
 
 export class CreateBlogDto {
@@ -58,6 +59,12 @@ export class CreateBlogDto {
 	@ArrayMaxSize(10, { message: 'There can be at most 10 tags' })
 	@IsString({ each: true, message: 'Each tag must be a string' })
 	tags: string[];
+
+	// add isPublished
+	@ApiProperty({ required: false })
+	@IsOptional()
+	@IsBoolean()
+	isPublished: boolean;
 }
 
 export class UpdateBlogDto extends PartialType(CreateBlogDto) {}
