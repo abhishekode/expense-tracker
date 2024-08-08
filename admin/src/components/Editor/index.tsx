@@ -20,7 +20,7 @@ const getEditorConfig = (placeholder: string, height: number) => ({
         'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
         'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
     ],
-    toolbar: 'undo redo | blocks | ' +
+    toolbar: 'undo redo | blocks | pre|' +
         'bold italic forecolor | alignleft aligncenter ' +
         'alignright alignjustify | bullist numlist outdent indent | ' +
         'removeformat | help',
